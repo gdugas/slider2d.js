@@ -96,11 +96,11 @@
         
         _setValues: function (xvalue, yvalue) {
             if (xvalue < this.options.xmin || xvalue > this.options.xmax) {
-                throw "x value (#{xvalue}) is out of range (#{this.options.xmin}, #{this.options.xmax})";
+                throw "x value ("+xvalue+") is out of range ("+this.options.xmin+", "+this.options.xmax+")";
             }
             
             if (yvalue < this.options.ymin || yvalue > this.options.ymax) {
-                throw "y value (#{yvalue}) is out of range (#{this.options.ymin}, #{this.options.ymax})";
+                throw "y value ("+yvalue+") is out of range ("+this.options.ymin+", "+this.options.ymax+")";
             }
             
             this.$handler.css({
