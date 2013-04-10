@@ -111,6 +111,9 @@
             this.options.yvalue = yvalue;
         },
         
+        /*
+         * project methods: convert css positionning to x and y values
+         */
         _projectX: function (x) {
             var width = this.$slider.width() - this.$handler.width(),
                 ratio = x / width,
@@ -125,6 +128,9 @@
             return yvalue;
         },
         
+        /*
+         * unproject methods: convert x and y values to css positionning
+         */
         _unprojectX: function (xvalue) {
             var width = this.options.xmax - this.options.xmin,
                 xvalue = - this.options.xmin,
@@ -161,7 +167,10 @@
         _onHandlerDrag: function (handler, e, ui) {
             this.options.xvalue = this._projectX(ui.position.left);
             this.options.yvalue = this._projectY(ui.position.top);
-            this._trigger('slide');
+            this._trigger('slide', {
+                xvalue: this.options.xvalue,
+                yvalue: this.options.yvalue
+            });
         },
         
         _onHandlerStart: function (handler, e, ui) {
@@ -169,7 +178,10 @@
                 xvalue: this.options.xvalue,
                 yvalue: this.options.yvalue
             };
-            this._trigger('start');
+            this._trigger('start', {
+                xvalue: this.options.xvalue,
+                yvalue: this.options.yvalue
+            });
         },
         
         _onHandlerStop: function (handler, e, ui) {
@@ -177,7 +189,10 @@
                 this._setValues(this.onstart.xvalue, this.onstart.yvalue);
             }
             delete this.onstart;
-            this._trigger('stop');
+            this._trigger('stop', {
+                xvalue: this.options.xvalue,
+                yvalue: this.options.yvalue
+            });
         }
     });
 
