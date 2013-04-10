@@ -29,7 +29,7 @@
         _initElement: function () {
             this.$el = $(this.element);
             this.initials.class = this.$el.attr('class');
-            this.$el.addClass('slider2d');
+            this.$el.addClass('slider2d ui-slider ui-corner-all');
         },
         
         _initSlider: function () {
@@ -45,7 +45,7 @@
         _initHandler: function () {
             var self = this;
             this.$handler = $('<div></div>');
-            this.$handler.addClass('ui-handler');
+            this.$handler.addClass('ui-slider-handle ui-state-default ui-corner-all');
             this.$handler.css('position', 'absolute');
             this.$slider.append(this.$handler);
             this.$handler.draggable({
