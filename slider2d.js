@@ -29,7 +29,7 @@
         _initElement: function () {
             this.$el = $(this.element);
             this.initials.class = this.$el.attr('class');
-            this.$el.addClass('slider2d ui-slider ui-corner-all');
+            this.$el.addClass('slider2d ui-slider ui-widget ui-widget-content ui-corner-all');
         },
         
         _initSlider: function () {
